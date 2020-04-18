@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".TelaTeste">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/teste"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="203dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
