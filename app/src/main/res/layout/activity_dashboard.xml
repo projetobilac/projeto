@@ -11,18 +11,18 @@
 
     <ImageView
         android:id="@+id/logo_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:transitionName="logo_image"
-        android:src="@drawable/lixo_ic"/>
+        android:layout_width="125dp"
+        android:layout_height="115dp"
+        android:src="@drawable/lixo_ic"
+        android:transitionName="logo_image" />
 
     <TextView
         android:id="@+id/logo_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:transitionName="logo_text"
-        android:fontFamily="@font/caviar_dreams_bold"
-        android:text="Bem-vindo ao recicla!"
+        android:fontFamily="@font/wintersoul"
+        android:text="Não sabe o que fazer com o seu lixo reciclável?"
         android:textColor="#000000"
         android:textSize="30sp"
         app:fontFamily="sans-serif-light" />
@@ -31,9 +31,9 @@
         android:id="@+id/slogan_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Faça o login para continuar"
+        android:text="Acesse ou cadastre-se no Recicla Sanja!"
         android:textSize="18sp"
-        app:fontFamily="sans-serif-condensed" />
+        app:fontFamily="@font/" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,7 +46,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/usuario"
+            android:layout_gravity="right"
+            android:layout_margin="5dp"
             android:hint="Usuário"
+            app:boxStrokeColor="#D6D2D2"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -60,13 +63,16 @@
             android:layout_height="wrap_content"
             android:id="@+id/senha"
             android:hint="Senha"
+            app:boxStrokeColor="#D6D2D2"
+            android:layout_gravity="right"
+            android:layout_margin="5dp"
             app:passwordToggleEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
         
@@ -83,19 +89,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Entrar"
-            android:background="@color/cardview_light_background"
-            android:textColor="#000000"
+            android:layout_gravity="right"
+            android:layout_margin="5dp"
+            android:background="#1E90FF"
+            android:textColor="#ffffff"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="5dp"
-            android:background="#00000000"
-            android:text="Novo usuário"
-            android:elevation="0dp" />
+    </LinearLayout>
 
-</LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="5dp"
+        android:background="#EFF3F2"
+        android:elevation="0dp"
+        android:textColor="#1E90FF"
+        android:textColorHighlight="#1E90FF"
+        android:text="Cadastre-se" />
 </LinearLayout>
