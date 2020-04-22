@@ -24,7 +24,7 @@
         android:fontFamily="@font/wintersoul"
         android:text="Não sabe o que fazer com o seu lixo reciclável?"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:fontFamily="sans-serif-light" />
 
     <TextView
@@ -33,7 +33,8 @@
         android:layout_height="wrap_content"
         android:text="Acesse ou cadastre-se no Recicla Sanja!"
         android:textSize="18sp"
-        app:fontFamily="@font/" />
+        app:fontFamily="@font/"
+        android:transitionName="logo_desc"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,6 +50,7 @@
             android:layout_gravity="right"
             android:layout_margin="5dp"
             android:hint="Usuário"
+            android:transitionName="user_tran"
             app:boxStrokeColor="#D6D2D2"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -72,7 +74,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:transitionName="password_tran"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         
@@ -86,6 +89,7 @@
             android:layout_margin="5dp"/>
 
         <Button
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Entrar"
@@ -94,11 +98,13 @@
             android:background="#1E90FF"
             android:textColor="#ffffff"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:transitionName="botao_login_tran"/>
 
     </LinearLayout>
 
     <Button
+        android:id="@+id/botao_cadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
@@ -107,5 +113,6 @@
         android:elevation="0dp"
         android:textColor="#1E90FF"
         android:textColorHighlight="#1E90FF"
-        android:text="Cadastre-se" />
+        android:text="Cadastre-se"
+        android:transitionName="btn_cadastrar_tran"/>
 </LinearLayout>
