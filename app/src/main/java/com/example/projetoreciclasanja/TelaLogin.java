@@ -22,7 +22,7 @@ public class TelaLogin extends AppCompatActivity {
     Button chamarCadastroUsuario, login_btn;
     ImageView image;
     TextView logoText, sloganText;
-    TextInputLayout usuario, senha;
+    TextInputLayout email, senha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class TelaLogin extends AppCompatActivity {
         image = findViewById(R.id.logo_image);
         logoText = findViewById(R.id.logo_name);
         sloganText = findViewById(R.id.slogan_name);
-        usuario = findViewById(R.id.usuario);
+        email = findViewById(R.id.email);
         senha = findViewById(R.id.senha);
         login_btn = findViewById(R.id.btn_login);
 
@@ -51,7 +51,7 @@ public class TelaLogin extends AppCompatActivity {
                 pairs[0] = new Pair<View,String>(image,"logo_image");
                 pairs[1] = new Pair<View,String>(logoText,"logo_text");
                 pairs[2] = new Pair<View,String>(sloganText,"logo_desc");
-                pairs[3] = new Pair<View,String>(usuario,"user_tran");
+                pairs[3] = new Pair<View,String>(email,"email_tran");
                 pairs[4] = new Pair<View,String>(senha,"password_tran");
                 pairs[5] = new Pair<View,String>(login_btn,"botao_login_tran");
                 pairs[6] = new Pair<View,String>(chamarCadastroUsuario,"btn_cadastrar_tran");
