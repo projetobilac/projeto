@@ -44,82 +44,81 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintTop_toBottomOf="@id/cad_novaconta">
+        app:layout_constraintTop_toBottomOf="@id/cad_novaconta"
+        tools:layout_editor_absoluteX="20dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nome"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-            
+            android:hint="Nome">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"/>
+            android:hint="Email">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/endereco"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Endereço"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:hint="Endereço">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/telefone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Telefone"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/telefone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:hint="Telefone">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/senha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Senha"
-        app:passwordToggleEnabled="true"
-        android:transitionName="password_tran"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/senha"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:hint="Senha"
+            android:transitionName="password_tran"
+            app:passwordToggleEnabled="true">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -127,11 +126,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="Como deseja se cadastrar?"
-                android:textSize="15dp"/>
+                android:textSize="15dp" />
 
             <RadioGroup
                 android:id="@+id/rg_tipoperfil"
@@ -145,44 +144,45 @@
                     android:id="@+id/rb_gerador"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginLeft="50dp"
                     android:nextFocusDown="@id/btn_cadastro"
                     android:padding="5dp"
 
-                    android:text="Gerador"
+                    android:text="Doador"
 
                     />
 
                 <RadioButton
                     android:id="@+id/rb_reciclador"
-                    android:layout_width="wrap_content"
+                    android:layout_width="133dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginLeft="50dp"
                     android:nextFocusDown="@id/btn_cadastro"
                     android:padding="5dp"
-                    android:text="Reciclador" />
+                    android:text="Coletor" />
             </RadioGroup>
 
         </LinearLayout>
 
 
-
-</LinearLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_cadastrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="360dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
         android:background="#1E90FF"
         android:fontFamily="@font/caviardreams"
         android:text="Cadastrar"
-        android:layout_marginTop="8dp"
         android:textColor="#fff"
         android:textSize="18sp"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintTop_toBottomOf="@+id/linear1"        />
+        app:layout_constraintBottom_toTopOf="@+id/btn_possui_conta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear1" />
 
     <Button
         android:id="@+id/btn_possui_conta"
@@ -192,8 +192,10 @@
         android:fontFamily="@font/caviardreams"
         android:text="Já possui uma conta? Clique para fazer Login"
         android:transitionName="btn_cadastrar_tran"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cadastrar"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cadastrar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
