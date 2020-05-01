@@ -20,11 +20,11 @@
         android:id="@+id/logo_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:transitionName="logo_text"
         android:fontFamily="@font/wintersoul"
         android:text="Não sabe o que fazer com o seu lixo reciclável?"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="25sp"
+        android:transitionName="logo_text"
         app:fontFamily="sans-serif-light" />
 
     <TextView
@@ -115,4 +115,10 @@
         android:textColorHighlight="#1E90FF"
         android:text="Cadastre-se"
         android:transitionName="btn_cadastrar_tran"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
