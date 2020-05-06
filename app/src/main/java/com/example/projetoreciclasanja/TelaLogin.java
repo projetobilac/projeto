@@ -68,7 +68,7 @@ public class TelaLogin extends AppCompatActivity {
 
             login_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent it = new Intent(TelaLogin.this, TelaTeste.class);
+                Intent it = new Intent(TelaLogin.this, MapsActivity.class);
                 startActivity(it);
             }
         });
