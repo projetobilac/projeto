@@ -12,7 +12,7 @@ $sql = "DELETE FROM usuario WHERE id=$id";
 
 //APAGANDO O DADO DO BANCO DE DADOS
 if(mysqli_query($con,$sql)){
-    echo 'Usuario excluído com sucesso';
+    echo 'com.example.projetoreciclasanja.TelaTeste.Usuario excluído com sucesso';
 }else{
     'Não foi possível excluir o usuario';
 

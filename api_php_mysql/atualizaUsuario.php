@@ -20,7 +20,7 @@
         if(mysqli_query($con, $sql)){
             echo 'Usuário atualizado com sucesso';
         }else{
-            echo 'Não foi possível atualizar o Usuario'
+            echo 'Não foi possível atualizar o com.example.projetoreciclasanja.TelaTeste.Usuario'
         }
 
         //FECHANDO A CONEXÃO COM O BANCO

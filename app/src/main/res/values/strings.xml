@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">ProjetoReciclaSanja</string>
     <string name="title_activity_maps">Map</string>
+    <string name="id">ID</string>
+    <string name="nome">Nome</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="remover">Remover</string>
+    <string name="plotar">Plotar</string>
+    
 </resources>

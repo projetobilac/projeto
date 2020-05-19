@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "536303471401",
+    "firebase_url": "https://recicla-sanja-2020.firebaseio.com",
+    "project_id": "recicla-sanja-2020",
+    "storage_bucket": "recicla-sanja-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536303471401:android:6b69f8a1a528fa8af4c538",
+        "android_client_info": {
+          "package_name": "com.example.projetoreciclasanja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536303471401-un2igodi1184rnhq2jv8nna70sp5kkik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3pkkGRvjBc8Eb7JgCDIz3txMIIUTXfKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536303471401-un2igodi1184rnhq2jv8nna70sp5kkik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
