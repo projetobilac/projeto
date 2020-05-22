@@ -25,6 +25,8 @@ public class CadastroUsuario extends AppCompatActivity {
     private TextInputLayout email, senha;
     private FirebaseAuth auth;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +47,7 @@ public class CadastroUsuario extends AppCompatActivity {
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String etemail = email.getText().toString().trim();
+                String etemail = email.getText().toString().trim(); //AQUI TEM QUE VER QUE TIPO DE GET DEVE SER
                 String etsenha = senha.getText().toString().trim();
                 criarUser(email, senha);
 
