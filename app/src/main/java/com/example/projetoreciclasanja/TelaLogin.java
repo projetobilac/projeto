@@ -1,5 +1,6 @@
 package com.example.projetoreciclasanja;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 
@@ -15,18 +16,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class TelaLogin extends AppCompatActivity {
 
-    private Button chamarCadastroUsuario, login_btn; //btnLogarloginbtn, btnNovochamarCadastroUsuario;
+    private Button chamarCadastroUsuario, login_btn;
 
     private ImageView image;
     private TextView logoText, sloganText;
-    private TextInputLayout email, senha;
+    private TextInputEditText editEmail, editSenha;
    // private TextView txtResetSenha;
 
     private FirebaseAuth auth;
@@ -52,8 +57,8 @@ public class TelaLogin extends AppCompatActivity {
         image = findViewById(R.id.logo_image);
         logoText = findViewById(R.id.logo_name);
         sloganText = findViewById(R.id.slogan_name);
-        email = findViewById(R.id.email);
-        senha = findViewById(R.id.senha);
+        editEmail = findViewById(R.id.editLoginEmail);
+        editSenha = findViewById(R.id.editLoginSenha);
         login_btn = findViewById(R.id.btn_login);
 
 
@@ -68,8 +73,8 @@ public class TelaLogin extends AppCompatActivity {
                 pairs[0] = new Pair<View, String>(image, "logo_image");
                 pairs[1] = new Pair<View, String>(logoText, "logo_text");
                 pairs[2] = new Pair<View, String>(sloganText, "logo_desc");
-                pairs[3] = new Pair<View, String>(email, "email_tran");
-                pairs[4] = new Pair<View, String>(senha, "password_tran");
+                pairs[3] = new Pair<View, String>(editEmail, "email_tran");
+                pairs[4] = new Pair<View, String>(editSenha, "password_tran");
                 pairs[5] = new Pair<View, String>(login_btn, "botao_login_tran");
                 pairs[6] = new Pair<View, String>(chamarCadastroUsuario, "btn_cadastrar_tran");
 
@@ -83,23 +88,49 @@ public class TelaLogin extends AppCompatActivity {
         });
 
 
-
-
         login_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent it = new Intent(TelaLogin.this, Usuario.class);
-                startActivity(it);
+                String etemail = editEmail.getText().toString().trim();
+                String etsenha = editSenha.getText().toString().trim();
+
+                //MÉTODO LOGIN
+                login(etemail,etsenha);
             }
         });
 
 
     }
 
+    private void login(String etemail, String etsenha) {
+        auth.signInWithEmailAndPassword(etemail, etsenha)
+                .addOnCompleteListener(TelaLogin.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Intent i = new Intent(TelaLogin.this,Perfil.class);
+                            startActivity(i);
+                        }else{
+                            alert("Email ou senha Inválidos");
+                        }
+                    }
+                });
+    }
+
+    private void alert(String s) {
+        Toast.makeText(TelaLogin.this,s,Toast.LENGTH_SHORT).show();
+    }
+
     private void inicializaComponentes() {
-        email = (TextInputLayout) findViewById(R.id.editLoginEmail);
-        senha = (TextInputLayout) findViewById(R.id.editLoginSenha);
+        editEmail = (TextInputEditText) findViewById(R.id.editLoginEmail);
+        editSenha = (TextInputEditText) findViewById(R.id.editLoginSenha);
         login_btn = (Button) findViewById(R.id.btn_login);
         chamarCadastroUsuario = (Button) findViewById(R.id.botao_cadastrar);
         //txtResetSenha = (TextView) findViewById(R.id.txtResetSenha);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        auth = Conexao.getFirebaseAuth();
     }
 }
