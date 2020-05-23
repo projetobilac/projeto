@@ -16,17 +16,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class TelaLogin extends AppCompatActivity {
 
     private Button chamarCadastroUsuario, login_btn; //btnLogarloginbtn, btnNovochamarCadastroUsuario;
-    private Button btnNovo;
-    ImageView image;
-    TextView logoText, sloganText;
+
+    private ImageView image;
+    private TextView logoText, sloganText;
     private TextInputLayout email, senha;
-    private TextView txtResetSenha;
+   // private TextView txtResetSenha;
+
     private FirebaseAuth auth;
 
 
@@ -59,7 +61,7 @@ public class TelaLogin extends AppCompatActivity {
             @Override
             //QUANDO USUÁRIO CLICAR NO BOTÃO NOVO USUARIO DIRECIONA PARA TELA CADASTRO
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CadastroUsuario.class);
+                Intent intent = new Intent(getApplicationContext(), UsuarioCadastro.class);
 
                 Pair[] pairs = new Pair[7];
 
@@ -95,7 +97,7 @@ public class TelaLogin extends AppCompatActivity {
 
     private void inicializaComponentes() {
         email = (TextInputLayout) findViewById(R.id.editLoginEmail);
-        senha = (TextInputLayout)findViewById(R.id.editLoginSenha);
+        senha = (TextInputLayout) findViewById(R.id.editLoginSenha);
         login_btn = (Button) findViewById(R.id.btn_login);
         chamarCadastroUsuario = (Button) findViewById(R.id.botao_cadastrar);
         //txtResetSenha = (TextView) findViewById(R.id.txtResetSenha);
