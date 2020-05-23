@@ -27,6 +27,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class TelaLogin extends AppCompatActivity {
 
+
+
     private Button chamarCadastroUsuario, login_btn;
 
     private ImageView image;
@@ -87,7 +89,7 @@ public class TelaLogin extends AppCompatActivity {
             }
         });
 
-
+        //COMMIT LOGIN DE USUÁRIO
         login_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String etemail = editEmail.getText().toString().trim();
