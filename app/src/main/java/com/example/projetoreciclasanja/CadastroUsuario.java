@@ -13,6 +13,12 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -20,10 +26,18 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class CadastroUsuario extends AppCompatActivity {
 
+    //private Button btnCadastrar, btnPossuiConta;
+   // private TextInputLayout email, senha;
+  //  private FirebaseAuth auth;
+
     private Button btnCadastrar, btnPossuiConta;
-    private TextInputLayout email, senha;
+    private TextInputEditText email, senha, etNome, etEndereco, etTelefone;
+    private EditText etId;
     private FirebaseAuth auth;
 
 
@@ -38,6 +52,10 @@ public class CadastroUsuario extends AppCompatActivity {
 
     }
     private void eventoClicks() {
+        final RequestQueue queue = Volley.newRequestQueue(this);
+        final String url = "https://reciclasanja.000webhostapp.com/usuarioControle.php";
+
+
         btnPossuiConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,15 +63,58 @@ public class CadastroUsuario extends AppCompatActivity {
 
             }
         });
+
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String etemail = email.getEditText().toString().trim();
-                String etsenha = senha.getEditText().toString().trim();
+                String etemail = email.getText().toString().trim();
+                String etsenha = senha.getText().toString().trim();
                 criarUser(etemail , etsenha);
+
+                JSONObject postparams = new JSONObject();
+
+
+                try{
+
+                    //postparams.put("id",  etId.getText());
+                    postparams.put("nome" , etNome.getText());
+                    postparams.put("email", email.getText());
+                    postparams.put("endereco", etEndereco.getText());
+                    postparams.put("telefone", etTelefone.getText());
+                    postparams.put("senha", senha.getText());
+
+
+
+                } catch (JSONException e){
+
+                    e.printStackTrace();
+
+                }
+
+
+                JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.POST, url, postparams, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG ).show();
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        Toast.makeText(getApplicationContext(), "ERRO" , Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
+
+                queue.add(jsonObjReq);
+
 
             }
         });
+
     }
 
     private void criarUser(String etemail, String etsenha) {
@@ -80,14 +141,25 @@ public class CadastroUsuario extends AppCompatActivity {
     }
 
     private void inicializaComponentes() {
-        email = (TextInputLayout) findViewById(R.id.editCadastroEmail);
-        senha = (TextInputLayout) findViewById(R.id.editCadastroSenha);
+        email = (TextInputEditText) findViewById(R.id.editCadastroEmail);
+        senha = (TextInputEditText) findViewById(R.id.editCadastroSenha);
         btnCadastrar = (Button) findViewById(R.id.btn_cadastrar);
         btnPossuiConta = (Button) findViewById(R.id.btn_possui_conta);
+
+       // etId = (EditText) findViewById(R.id.etID);//////////////// PRECISO VER COMO O ID ENTRA MAS FICANDO INVISIVEL
+        etNome = (TextInputEditText) findViewById(R.id.editCadastroNome);
+        etEndereco = (TextInputEditText) findViewById(R.id.editCadastroEndereco);
+        etTelefone = (TextInputEditText) findViewById(R.id.editCadastroTelefone);
+
+
+
+        //btPesquisarID = (Button) findViewById(R.id.btPesquisarID);
+        // btAtualizar = (Button) findViewById(R.id.btAtualizar);
+        // btApagar = (Button) findViewById(R.id.btApagar);
+
     }
 
-
-    @Override
+        @Override
     protected void onStart() {
         super.onStart();
         auth = Conexao.getFirebaseAuth();

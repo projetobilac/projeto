@@ -68,7 +68,7 @@ public class TelaLogin extends AppCompatActivity {
             @Override
             //QUANDO USUÁRIO CLICAR NO BOTÃO NOVO USUARIO DIRECIONA PARA TELA CADASTRO
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), UsuarioCadastro.class);
+                Intent intent = new Intent(getApplicationContext(), CadastroUsuario.class);
 
                 Pair[] pairs = new Pair[7];
 
