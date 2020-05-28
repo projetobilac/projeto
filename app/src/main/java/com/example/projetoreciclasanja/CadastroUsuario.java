@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,15 +32,16 @@ import org.json.JSONObject;
 
 public class CadastroUsuario extends AppCompatActivity {
 
-    //private Button btnCadastrar, btnPossuiConta;
-   // private TextInputLayout email, senha;
-  //  private FirebaseAuth auth;
 
     private Button btnCadastrar, btnPossuiConta;
     private TextInputEditText email, senha, etNome, etEndereco, etTelefone;
-    private EditText etId;
     private FirebaseAuth auth;
 
+
+
+    private RadioGroup radioGroup;
+    private RadioButton rbSelecionado;
+    String tipoEscolhido;
 
 
     @Override
@@ -71,9 +73,36 @@ public class CadastroUsuario extends AppCompatActivity {
                 String etsenha = senha.getText().toString().trim();
                 criarUser(etemail , etsenha);
 
+
+                int itemRadioGroupSelecionado = radioGroup.getCheckedRadioButtonId();
+                final RadioButton rbTipoSelecionado = findViewById(itemRadioGroupSelecionado);
+
+                String tipoSelecionado = rbTipoSelecionado.getText().toString();
+
+
+
+                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int i) {
+
+                        rbSelecionado = radioGroup.findViewById(i);
+
+                        switch (i) {
+                            case R.id.rb_gerador:
+                                tipoEscolhido = rbSelecionado.getText().toString();
+                                break;
+
+                            case R.id.rb_reciclador:
+                                tipoEscolhido = rbSelecionado.getText().toString();
+                                break;
+
+                            default:
+                        }
+                    }
+                });
+
+
                 JSONObject postparams = new JSONObject();
-
-
                 try{
 
                     //postparams.put("id",  etId.getText());
@@ -82,7 +111,7 @@ public class CadastroUsuario extends AppCompatActivity {
                     postparams.put("endereco", etEndereco.getText());
                     postparams.put("telefone", etTelefone.getText());
                     postparams.put("senha", senha.getText());
-
+                    postparams.put("tipo", rbTipoSelecionado.getText());
 
 
                 } catch (JSONException e){
@@ -133,6 +162,7 @@ public class CadastroUsuario extends AppCompatActivity {
 
                         }
                     }
+
                 });
     }
 
@@ -145,6 +175,7 @@ public class CadastroUsuario extends AppCompatActivity {
         senha = (TextInputEditText) findViewById(R.id.editCadastroSenha);
         btnCadastrar = (Button) findViewById(R.id.btn_cadastrar);
         btnPossuiConta = (Button) findViewById(R.id.btn_possui_conta);
+        radioGroup = (RadioGroup) findViewById(R.id.rg_tipoperfil);
 
        // etId = (EditText) findViewById(R.id.etID);//////////////// PRECISO VER COMO O ID ENTRA MAS FICANDO INVISIVEL
         etNome = (TextInputEditText) findViewById(R.id.editCadastroNome);
@@ -166,5 +197,13 @@ public class CadastroUsuario extends AppCompatActivity {
     }
 }
 
+
+
+
+
+//private Button btnCadastrar, btnPossuiConta;
+// private TextInputLayout email, senha;
+//  private FirebaseAuth auth;
+// private EditText etId;
 
 
