@@ -153,7 +153,7 @@ public class CadastroUsuario extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             alert("Usuário cadastrado com sucesso");
-                            Intent i = new Intent(CadastroUsuario.this, Perfil.class);
+                            Intent i = new Intent(CadastroUsuario.this, TelaPerfil.class);
                             startActivity(i);
                             finish();
 

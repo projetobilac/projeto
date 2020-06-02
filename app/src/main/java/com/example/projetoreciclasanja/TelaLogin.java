@@ -109,7 +109,7 @@ public class TelaLogin extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Intent i = new Intent(TelaLogin.this,Perfil.class);
+                            Intent i = new Intent(TelaLogin.this,TelaPerfil.class);
                             startActivity(i);
                         }else{
                             alert("Email ou senha Inválidos");

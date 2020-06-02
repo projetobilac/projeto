@@ -10,4 +10,10 @@
     <string name="remover">Remover</string>
     <string name="plotar">Plotar</string>
 
+
+    <!-- STRINGS DA TELA DE PERFIL-->
+    <string name="btnLogin">Botão Login </string>
+    <string name="siga_me">Siga Me</string>
+    <string name="mostrar_as_avalia_es">Mostrar as Avaliações</string>
+
 </resources>
