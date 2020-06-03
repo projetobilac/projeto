@@ -177,7 +177,7 @@ public class CadastroUsuario extends AppCompatActivity {
         btnPossuiConta = (Button) findViewById(R.id.btn_possui_conta);
         radioGroup = (RadioGroup) findViewById(R.id.rg_tipoperfil);
 
-       // etId = (EditText) findViewById(R.id.etID);//////////////// PRECISO VER COMO O ID ENTRA MAS FICANDO INVISIVEL
+        //etid = (EditText) findViewById(R.id.etID);//////////////// PRECISO VER COMO O ID ENTRA MAS FICANDO INVISIVEL
         etNome = (TextInputEditText) findViewById(R.id.editCadastroNome);
         etEndereco = (TextInputEditText) findViewById(R.id.editCadastroEndereco);
         etTelefone = (TextInputEditText) findViewById(R.id.editCadastroTelefone);

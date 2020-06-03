@@ -32,9 +32,8 @@ public class TelaLogin extends AppCompatActivity {
     private Button chamarCadastroUsuario, login_btn;
 
     private ImageView image;
-    private TextView logoText, sloganText;
+    private TextView logoText, sloganText, txtResetSenha;
     private TextInputEditText editEmail, editSenha;
-   // private TextView txtResetSenha;
 
     private FirebaseAuth auth;
 
@@ -62,6 +61,7 @@ public class TelaLogin extends AppCompatActivity {
         editEmail = findViewById(R.id.editLoginEmail);
         editSenha = findViewById(R.id.editLoginSenha);
         login_btn = findViewById(R.id.btn_login);
+        txtResetSenha = findViewById(R.id.txtResetSenha);
 
 
         chamarCadastroUsuario.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +70,7 @@ public class TelaLogin extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CadastroUsuario.class);
 
-                Pair[] pairs = new Pair[7];
+                Pair[] pairs = new Pair[8];
 
                 pairs[0] = new Pair<View, String>(image, "logo_image");
                 pairs[1] = new Pair<View, String>(logoText, "logo_text");
@@ -79,6 +79,7 @@ public class TelaLogin extends AppCompatActivity {
                 pairs[4] = new Pair<View, String>(editSenha, "password_tran");
                 pairs[5] = new Pair<View, String>(login_btn, "botao_login_tran");
                 pairs[6] = new Pair<View, String>(chamarCadastroUsuario, "btn_cadastrar_tran");
+                pairs[7] = new Pair<View, String>(txtResetSenha, "txt_reset_tran");
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                     ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(TelaLogin.this, pairs);
@@ -100,6 +101,13 @@ public class TelaLogin extends AppCompatActivity {
             }
         });
 
+        txtResetSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TelaLogin.this, ResetarSenha.class);
+                startActivity(i);
+            }
+        });
 
     }
 
@@ -127,7 +135,7 @@ public class TelaLogin extends AppCompatActivity {
         editSenha = (TextInputEditText) findViewById(R.id.editLoginSenha);
         login_btn = (Button) findViewById(R.id.btn_login);
         chamarCadastroUsuario = (Button) findViewById(R.id.botao_cadastrar);
-        //txtResetSenha = (TextView) findViewById(R.id.txtResetSenha);
+        txtResetSenha = (TextView) findViewById(R.id.txtResetSenha);
     }
 
     @Override
@@ -136,3 +144,4 @@ public class TelaLogin extends AppCompatActivity {
         auth = Conexao.getFirebaseAuth();
     }
 }
+

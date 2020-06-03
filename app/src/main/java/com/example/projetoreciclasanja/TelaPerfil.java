@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class TelaPerfil extends AppCompatActivity {
 
-    private TextView textEmail, textTelefone;
+    private TextView textEmail, txtID;        // textTelefone; //VER COMO TRAZER O NÚMERO DE TELEFONE QUE ESTÁ NO BANCO
     private Button btnLogout;
 
     private FirebaseAuth auth;
@@ -39,9 +39,11 @@ public class TelaPerfil extends AppCompatActivity {
 
     private void inicializaComponentes() {
         textEmail = (TextView) findViewById(R.id.textPerfilEmail);
-        textTelefone = (TextView) findViewById(R.id.textPerfilTelefone);
+        txtID = (TextView) findViewById(R.id.textPerfilId);
         btnLogout = (Button) findViewById(R.id.btnPerfilLogout);
-        //textID = (TextView) findViewById(R.id.textPerfilId);
+
+        // textTelefone = (TextView) findViewById(R.id.textPerfilTelefone); // UTIILIZAR QAUNDO TIVER
+        // VERIFICADO COMO MOSTRAR NA TELA O NÚMERO DE TELEFONE QUE ESTÁ CADASTRADO NO BANCO MYSQL
     }
 
     @Override
@@ -58,7 +60,10 @@ public class TelaPerfil extends AppCompatActivity {
             finish();
         }else{
             textEmail.setText("Email: "+user.getEmail());
-            //textID.setText("ID: "+user.getUid());
+            txtID.setText("ID: "+user.getUid());
+            //txtID.setVisibility(View.GONE); VER SE É ASSIM QUE DEIXA INVISIVEL OU SE É DIRETO NO XML
+            // VERIFICAR COMO TRAZER O ID, PORÉM INVISÍVEL NA TELA
+            //textTelefone.setText();// VERIFICAR COMO TRAZER O NÚMERO DE TELEFONE QUE FOI CADASTRADO ATRAVÉS NO BANCO MYSQL ATRAVÉ DA API
 
         }
     }

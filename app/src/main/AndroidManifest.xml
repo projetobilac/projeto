@@ -17,10 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TelaPerfil"></activity>
-        <activity android:name=".UsuarioCadastro" />
-        <activity android:name=".Perfil" />
-        <activity android:name=".add" />
+        <activity android:name=".ResetarSenha"></activity>
+        <activity android:name=".TelaPerfil" />
         <activity android:name=".Usuario" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
